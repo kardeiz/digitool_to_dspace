@@ -87,8 +87,10 @@ module DigitoolToDspace
         o['dc.identifier.digitool'] = [pid] if pid
         o['dc.date.captured'] = [dc_date_captured] if dc_date_captured
         o['dc.date.issued'] = dc_dates_issued unless dc_dates_issued.empty?
-        o['dc.format.dimensions'] = [primary_file.dimensions] if primary_file.is_image?
-        o['dc.format.resolution'] = [primary_file.ppi] if primary_file.is_image?
+        if primary_file && primary_file.is_image?
+          o['dc.format.dimensions'] = [primary_file.dimensions]
+          o['dc.format.resolution'] = [primary_file.ppi]
+        end
       end
     end
   
