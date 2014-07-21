@@ -118,7 +118,8 @@ module DigitoolToDspace
   
     def file
       @file ||= begin
-        if file_name = rep.at_xpath('//stream_ref/file_name').try(:content)
+        file_name = rep.at_xpath('//stream_ref/file_name').try(:content)
+        if !file_name.blank?
           file_type = rep.at_xpath('//stream_ref/file_extension').try(:content)
           file_path = File.join(source, 'streams', file_name)
           DigitalFile.new(file_path, file_type, usage_type)
