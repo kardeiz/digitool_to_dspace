@@ -17,3 +17,8 @@ task :process do
   DigitoolToDspace::Processor.process_all(input, output)
 
 end
+
+task :check do
+  input  = ENV['input']
+  DigitoolToDspace::Processor.check_all(input)
+end
