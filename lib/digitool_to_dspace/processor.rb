@@ -35,7 +35,7 @@ module DigitoolToDspace
         digital_entity_files(input).each do |df|
           de = DigitalEntity.new(df)
           if de.usage_type == "VIEW"
-            puts df if de.file_count > 1
+            puts df if de.file_count > 1 || de.related_count > 1
           end
         end
       end

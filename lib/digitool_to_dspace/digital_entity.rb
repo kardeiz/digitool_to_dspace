@@ -122,6 +122,10 @@ module DigitoolToDspace
       @file_count ||= rep.xpath('//stream_ref/file_name').size
     end
 
+    def related_count_max
+      @related_count_max ||= related_manifestations.map(&:file_count).max
+    end
+
     def file
       @file ||= begin
         file_name = rep.at_xpath('//stream_ref/file_name').try(:content)
