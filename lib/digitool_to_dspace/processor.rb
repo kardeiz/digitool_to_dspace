@@ -29,6 +29,16 @@ module DigitoolToDspace
           end
         end
       end
+
+      def check_all(input)
+        raise "Must identify input" if input.nil?
+        digital_entity_files(input).each do |df|
+          de = DigitalEntity.new(df)
+          if de.usage_type == "VIEW"
+            puts df if de.file_count > 1
+          end
+        end
+      end
     
     end
   

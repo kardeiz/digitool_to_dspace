@@ -118,6 +118,10 @@ module DigitoolToDspace
       end
     end
   
+    def file_count
+      @file_count ||= rep.xpath('//stream_ref/file_name').size
+    end
+
     def file
       @file ||= begin
         file_name = rep.at_xpath('//stream_ref/file_name').try(:content)
