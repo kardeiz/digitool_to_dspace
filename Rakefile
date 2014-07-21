@@ -1,6 +1,7 @@
 require "bundler/gem_tasks"
-
 require 'rake/testtask'
+require 'digitool_to_dspace'
+
 
 Rake::TestTask.new do |t|
   t.libs.push "lib"
