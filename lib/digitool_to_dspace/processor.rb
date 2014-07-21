@@ -40,7 +40,7 @@ module DigitoolToDspace
     
     def folder
       @folder ||= begin
-        folder_name = "item_#{@index.to_s.rjust(3,'0')}"
+        folder_name = "item_#{@index.to_s.rjust(4,'0')}"
         File.join(@output, folder_name).tap do |o|
           FileUtils.mkdir_p(o) unless File.exists?(o)
         end
