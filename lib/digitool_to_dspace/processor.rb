@@ -57,7 +57,7 @@ module DigitoolToDspace
     def create_contents
       File.open(File.join(folder, 'contents'), 'w') do |f|
         f.puts @digital_entity.primary_file.contents
-      end
+      end if @digital_entity.primary_file
     end
     
     def create_dublin_core
@@ -67,7 +67,7 @@ module DigitoolToDspace
     end
     
     def copy_files
-      @digital_entity.primary_file.process(folder)
+      @digital_entity.primary_file.process(folder) if @digital_entity.primary_file
     end
     
   
